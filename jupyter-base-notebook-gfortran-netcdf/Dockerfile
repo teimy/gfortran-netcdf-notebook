@@ -81,3 +81,6 @@ RUN cd netcdf-fortran-4.4.4; \
     make check; \
     make install; \
     rm -rf /v4.4.4.tar.gz /netcdf-fortran-4.4.4
+
+ENTRYPOINT ["tini", "-g", "--"]
+CMD ["start-notebook.sh"]
