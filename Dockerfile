@@ -39,7 +39,7 @@ ENV FC=gfortran
 # set library location
 ENV PREFIXDIR=/usr/local
 
-WORKDIR $HOME
+WORKDIR /
 
 ## get zlib
 ENV ZLIB_VERSION=zlib-1.2.11
@@ -48,7 +48,7 @@ RUN cd ${ZLIB_VERSION} \
     && ./configure --prefix=${PREFIXDIR} \
     && make check \
     && make install
-WORKDIR $HOME
+WORKDIR /
 RUN rm -rf ${ZLIB_VERSION}.tar.gz ${ZLIB_VERSION}
 
 ## get hdf5-1.8
@@ -59,7 +59,7 @@ RUN cd ${HDF518_VERSION} \
     && make \
     && make check \
     && make install
-WORKDIR $HOME
+WORKDIR /
 RUN rm -rf ${HDF518_VERSION}.tar.gz ${HDF518_VERSION}
 
 ## get hdf5-1.10
@@ -69,7 +69,7 @@ RUN cd ${HDF5110_VERSION} \
     && ./configure --with-zlib=${PREFIXDIR} --prefix=${PREFIXDIR} --enable-hl --enable-shared \
     && make check \
     && make install
-WORKDIR $HOME
+WORKDIR /
 RUN rm -rf ${HDF5110_VERSION}.tar.gz ${HDF5110_VERSION}
 
 ## get netcdf-c
@@ -80,7 +80,7 @@ RUN cd netcdf-c-${NETCDFC_VERSION} \
     && CPPFLAGS=-I${PREFIXDIR}/include LDFLAGS=-L${PREFIXDIR}/lib ./configure --prefix=${PREFIXDIR} --enable-netcdf-4 --enable-shared --enable-dap \
     && make check \
     && make install
-WORKDIR $HOME
+WORKDIR /
 RUN rm -rf v${NETCDFC_VERSION}.tar.gz netcdf-c-${NETCDFC_VERSION}
 
 ## get netcdf-fortran
@@ -90,7 +90,7 @@ RUN cd netcdf-fortran-${NETCDFFORTRAN_VERSION} \
     && CPPFLAGS=-I${PREFIXDIR}/include LDFLAGS=-L${PREFIXDIR}/lib ./configure --prefix=${PREFIXDIR} \
     && make check \
     && make install
-WORKDIR $HOME
+WORKDIR /
 RUN rm -rf v${NETCDFFORTRAN_VERSION}.tar.gz netcdf-fortran-${NETCDFFORTRAN_VERSION}
 
 ENTRYPOINT ["tini", "-g", "--"]
