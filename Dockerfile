@@ -93,5 +93,7 @@ RUN cd netcdf-fortran-${NETCDFFORTRAN_VERSION} \
 WORKDIR /
 RUN rm -rf v${NETCDFFORTRAN_VERSION}.tar.gz netcdf-fortran-${NETCDFFORTRAN_VERSION}
 
+WORKDIR $HOME
+
 ENTRYPOINT ["tini", "-g", "--"]
 CMD ["start-notebook.sh"]
