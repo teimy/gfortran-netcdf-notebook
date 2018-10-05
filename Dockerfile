@@ -46,7 +46,7 @@ RUN cd ${ZLIB_VERSION} \
     && ./configure --prefix=${PREFIXDIR} \
     && make check \
     && make install \
-    && rm -rf /${ZLIB_VERSION}.tar.gz /${ZLIB_VERSION}
+    && rm -rf ${ZLIB_VERSION}.tar.gz ${ZLIB_VERSION}
 
 
 ## get hdf5-1.8
