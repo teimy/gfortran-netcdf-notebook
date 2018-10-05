@@ -56,7 +56,8 @@ ENV HDF518_VERSION=hdf5-1.8.21
 RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/${HDF518_VERSION}/src/${HDF518_VERSION}.tar.gz && tar -xvzf ${HDF518_VERSION}.tar.gz
 RUN cd ${HDF518_VERSION} \
     && ./configure --with-zlib=${PREFIXDIR} --prefix=${PREFIXDIR} --enable-hl \
-    && echo "skipping make check" \
+    && make \
+    && make check \
     && make install
 WORKDIR $HOME
 RUN rm -rf ${HDF518_VERSION}.tar.gz ${HDF518_VERSION}
