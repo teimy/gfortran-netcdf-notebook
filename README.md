@@ -1,3 +1,5 @@
+UPD.: Updated version of old repo to work with modern f2py
+
 [![dockerhub build status](https://img.shields.io/docker/build/climateimpactlab/gfortran-netcdf-notebook.svg)](https://hub.docker.com/r/climateimpactlab/gfortran-netcdf-notebook/) [![Docker Pulls](https://img.shields.io/docker/pulls/climateimpactlab/gfortran-netcdf-notebook.svg)](https://hub.docker.com/r/climateimpactlab/gfortran-netcdf-notebook/)
 
 # gfortran-netcdf-notebook
